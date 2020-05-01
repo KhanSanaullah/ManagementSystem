@@ -20,7 +20,7 @@ namespace SystematicSolutions.App_Start
             {
                 foreach (var File in response.Files)
                 {
-                    string version = "4578"; //DAL.Config.appVersion;
+                    string version = DAL.Config.appVersion;
                     File.IncludedVirtualPath = string.Concat(File.IncludedVirtualPath, "?v=", version);
                 }
             }
