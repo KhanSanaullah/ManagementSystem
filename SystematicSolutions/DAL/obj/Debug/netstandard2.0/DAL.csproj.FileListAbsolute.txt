@@ -1,9 +1,0 @@
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.csprojAssemblyReference.cache
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfoInputs.cache
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfo.cs
-D:\Web Applications\Management System\SystematicSolutions\DAL\bin\Debug\netstandard2.0\DAL.deps.json
-D:\Web Applications\Management System\SystematicSolutions\DAL\bin\Debug\netstandard2.0\DAL.dll
-D:\Web Applications\Management System\SystematicSolutions\DAL\bin\Debug\netstandard2.0\DAL.pdb
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.dll
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.pdb
-D:\Web Applications\Management System\SystematicSolutions\DAL\obj\Debug\netstandard2.0\DAL.csproj.CoreCompileInputs.cache

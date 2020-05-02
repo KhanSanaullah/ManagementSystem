@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
@@ -20,8 +21,8 @@ namespace SystematicSolutions.App_Start
             {
                 foreach (var File in response.Files)
                 {
-                    string version = DAL.Config.appVersion;
-                    File.IncludedVirtualPath = string.Concat(File.IncludedVirtualPath, "?v=", version);
+                    string version = ConfigurationManager.AppSettings["version"].ToString();
+                    File.IncludedVirtualPath = string.Concat(File.IncludedVirtualPath, "? v=", version);
                 }
             }
         }

@@ -1,0 +1,5 @@
+D:\Web Applications\Management System\SystematicSolutions\SS_DAL\bin\Debug\SS_DAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_DAL\bin\Debug\SS_DAL.pdb
+D:\Web Applications\Management System\SystematicSolutions\SS_DAL\obj\Debug\SS_DAL.csproj.CoreCompileInputs.cache
+D:\Web Applications\Management System\SystematicSolutions\SS_DAL\obj\Debug\SS_DAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_DAL\obj\Debug\SS_DAL.pdb

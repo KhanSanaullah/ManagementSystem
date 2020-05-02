@@ -82,6 +82,7 @@ $(window).on('load', function() {
 
 	$editor.on('submit', function(e){
 		if (this.checkValidity && !this.checkValidity()) return;
+		debugger;
 		e.preventDefault();
 		var row = $modal.data('row'),
 			values = {
