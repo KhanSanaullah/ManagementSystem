@@ -116,3 +116,9 @@ D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bi
 D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\System.Threading.AccessControl.dll
 D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_DAL.dll
 D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_DAL.pdb
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_BAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_Interface.dll
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_Common.dll
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_BAL.pdb
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_Interface.pdb
+D:\Web Applications\Management System\SystematicSolutions\SystematicSolutions\bin\SS_Common.pdb

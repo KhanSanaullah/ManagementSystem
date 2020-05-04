@@ -14,11 +14,12 @@ namespace SS_DAL
         public DataTable Save(IStudent Student, ISession Session)
         {
             DataTable Data = new DataTable();
-            using (SqlConnection con = new SqlConnection(Config.ConnectionString))
+            using (SqlConnection Connection = new SqlConnection(DAL_Config.ConnectionString))
             {
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-                using (SqlTransaction trans = con.BeginTransaction())
+                if (Connection.State == ConnectionState.Closed)
+                    Connection.Open();
+
+                using (SqlTransaction transaction = Connection.BeginTransaction())
                 {
                     SqlParameter[] param = { new SqlParameter("@custid",Student.StudentId)
                                                 ,new SqlParameter("@firstName",Student.FirstName)
@@ -27,18 +28,20 @@ namespace SS_DAL
 
                     try
                     {
-                        Data = SqlHelper.ExecuteDataset(trans, "RB_uac_Student_Register", param).Tables[0];
-                        trans.Commit();
+                        Data = SqlHelper.ExecuteDataset(transaction, "RB_uac_Student_Register", param).Tables[0];
+                        transaction.Commit();
+
+                        Student.StudentId = Convert.ToInt32(Data.Rows[0]["custid"]);
                     }
                     catch (Exception ex)
                     {
-                        trans.Rollback();
+                        transaction.Rollback();
                         throw;
                     }
-                    Student.StudentId = Convert.ToInt32(Data.Rows[0]["custid"]);
                 }
-                if (con.State == ConnectionState.Open)
-                    con.Close();
+
+                if (Connection.State == ConnectionState.Open)
+                    Connection.Close();
             }
             return Data;
         }

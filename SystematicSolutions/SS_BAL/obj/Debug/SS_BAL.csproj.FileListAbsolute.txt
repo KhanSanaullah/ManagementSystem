@@ -1,0 +1,13 @@
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_BAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_BAL.pdb
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_Common.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_DAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_Interface.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_Common.pdb
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_DAL.pdb
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\bin\Debug\SS_Interface.pdb
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\obj\Debug\SS_BAL.csprojAssemblyReference.cache
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\obj\Debug\SS_BAL.csproj.CoreCompileInputs.cache
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\obj\Debug\SS_BAL.csproj.CopyComplete
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\obj\Debug\SS_BAL.dll
+D:\Web Applications\Management System\SystematicSolutions\SS_BAL\obj\Debug\SS_BAL.pdb

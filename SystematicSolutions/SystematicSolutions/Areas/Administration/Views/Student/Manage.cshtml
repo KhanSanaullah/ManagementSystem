@@ -4,60 +4,146 @@
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Validation with Custom Styles</h4>
-        <form class="needs-validation" novalidate>
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom01">First Name</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom02">Last Name</label>
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustomUsername">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend">@@</span>
-                        </div>
-                        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                    </div>
-                </div>
+@section Style{
+
+    @Styles.Render("~/Content/FormCss")
+}
+
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-5 align-self-center">
+            <h4 class="page-title">Manage Students</h4>
+            <div class="d-flex align-items-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Student</li>
+                    </ol>
+                </nav>
             </div>
-            <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label for="validationCustom03">City</label>
-                    <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom04">State</label>
-                    <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                    <div class="invalid-feedback">Please choose a State.</div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="validationCustom05">Zip</label>
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check custom-control custom-checkbox mr-sm-2">
-                    <input type="checkbox" class="custom-control-input form-check-input" id="invalidcheck1" required>
-                    <label class="custom-control-label form-check-label" for="invalidcheck1">Agree to terms and conditions</label>
-                    <div class="invalid-feedback">
-                        You must agree before submitting.
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </form>
+        </div>
     </div>
 </div>
 
+<div class="container-fluid">
+    <form class="needs-validation" id="StudentForm" novalidate>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Student Details
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="FirstName">First Name</label>
+                                <input type="text" class="form-control" id="FirstName" placeholder="First name" name="FirstName" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="LastName">Last Name</label>
+                                <input type="text" class="form-control" id="LastName" placeholder="Last Name" name="LastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="Gender">Gender</label>
+                                <select class="select2 form-control custom-select" id="Gender" style="width: 100%; height:36px;" required>
+                                    <option></option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="Religion">Religion</label>
+                                <input type="text" class="form-control" id="Religion" name="Religion" placeholder="Religion" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="Nationality">Nationality </label>
+                                <input type="text" class="form-control" id="Nationality" name="Nationality" placeholder="Nationality" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="PhoneNo">Phone Number</label>
+                                <input type="text" class="form-control" id="PhoneNo" placeholder="PhoneNo" name="PhoneNo" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="DateOfBirth">Date of Birth </label>
+                                <div class="input-group">
+                                    <input type="text" id="DateOfBirth" name="DateOfBirth" class="form-control DatePicker" placeholder="mm/dd/yyyy" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="icon-calender"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="AdmissionDate">Admission Date</label>
+                                <div class="input-group">
+                                    <input type="text" id="AdmissionDate" required name="AdmissionDate" class="form-control DatePicker" placeholder="mm/dd/yyyy">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="icon-calender"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-4">
+                                <label for="Address">Address </label>
+                                <textarea class="form-control" id="Address" placeholder="Address" name="Address" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header"> Credentials</div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-4">
+                                <label for="Username">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">@@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="Username" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="Password">Password</label>
+                                <input type="text" class="form-control" id="Password" placeholder="Password" name="Password" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
 @section Script{
 
     @Scripts.Render("~/bundles/Form")
 
+    <script>
+        $(document).ready(function () {
+
+            FormHelpher.InitSelect2($('#Gender'), "Select Gender", true);
+            FormHelpher.InitDatePicker($('#DateOfBirth'), true, false);
+            FormHelpher.InitDatePicker($('#AdmissionDate'), true, true);
+
+            $('#StudentForm').on('submit', function () {
+
+                FormHelpher.FormValidate($('#StudentForm'));
+
+            });
+
+        });
+    </script>
 }
