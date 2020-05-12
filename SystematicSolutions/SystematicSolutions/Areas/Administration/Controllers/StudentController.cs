@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SS_BAL;
+using SS_Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,9 @@ namespace SystematicSolutions.Areas.Administration.Controllers
         // GET: Administration/Student
         public ActionResult Manage()
         {
-            return View();
+            List <BAL_Class> ClassList = new BAL_Class().GetClassData();
+
+            return View(ClassList);
         }
     }
 }

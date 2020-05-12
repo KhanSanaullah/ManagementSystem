@@ -1,22 +1,32 @@
-﻿$('.select2').on('change', function () {
+﻿
+$('.select2').on('change', function () {
+
     if ($('.needs-validation').hasClass('was-validated')) {
-        if (this.value) {
-            $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonsuccess');
-        }
-        else {
-            $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonerror');
+        let attr = $(this).attr('required');
+        if (typeof attr !== typeof undefined && attr !== false) {
+            if (this.value) {
+                $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonsuccess');
+            }
+            else {
+                $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonerror');
+            }
         }
     }
 });
 
-//$('.select2-selection__clear:contains("x")').click(function () {
-//    alert(1)
-//});
+$(".select2").on("select2:unselecting", function (e) {
 
-//$('.myclass li.active .short-text:contains("someText")').click();
-//$(document).click('.select2-selection__clear', function () {
-//    alert(1)
-//})
+    if ($(this).closest('form.needs-validation').hasClass('was-validated')) {
+        let attr = $(this).attr('required');
+        if (typeof attr !== typeof undefined && attr !== false) {
+            $('.select2-selection').removeClass('selectonsuccess');
+            $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonerror');
+
+        }
+    }
+
+});
+
 
 var FormHelpher = {
 
@@ -25,7 +35,6 @@ var FormHelpher = {
             placeholder: Placeholder,
             allowClear: IsAllowClear
         });
-        debugger;
     },
 
     InitDatePicker: function (Date, IsAutoClose, IsTodayHighlight) {
@@ -46,7 +55,7 @@ var FormHelpher = {
                     let attr = $(this).attr('required');
                     if (typeof attr !== typeof undefined && attr !== false) {
                         if (!$(this).siblings().hasClass('invalid-feedback')) {
-                            if(!this.value)
+                            if (!this.value)
                                 $(this).parent().append('<div class="invalid-feedback">This field is required.</div >');
 
                             if (this.tagName.toLowerCase() == "select") {
@@ -59,6 +68,11 @@ var FormHelpher = {
                                     $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonsuccess');
                                 }
                             }
+                        }
+                    }
+                    else {
+                        if (this.tagName.toLowerCase() == "select") {
+                            $(this).siblings('.select2').children('.selection').children('.select2-selection').addClass('selectonsuccess');
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<SS_BAL.BAL_Class>
 @{
     ViewBag.Title = "Manage Student";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
@@ -47,7 +47,7 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-4">
                                 <label for="Gender">Gender</label>
-                                <select class="select2 form-control custom-select" id="Gender" style="width: 100%; height:36px;" required>
+                                <select class="select2 form-control custom-select" id="Gender" style="width: 100%; height:36px;">
                                     <option></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="Religion">Religion</label>
-                                <input type="text" class="form-control" id="Religion" name="Religion" placeholder="Religion" required>
+                                <input type="text" class="form-control" id="Religion" name="Religion" placeholder="Religion">
                             </div>
                         </div>
                         <div class="form-row">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="PhoneNo">Phone Number</label>
-                                <input type="text" class="form-control" id="PhoneNo" placeholder="PhoneNo" name="PhoneNo" required>
+                                <input type="text" class="form-control" id="PhoneNo" placeholder="Phone Number" name="PhoneNo" required>
                             </div>
                         </div>
                         <div class="form-row">
@@ -88,6 +88,22 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="col-md-6 mb-4">
+                                <label for="Class">Class</label>
+                                <select class="select2 form-control custom-select" id="Class" style="width: 100%; height:36px;">
+                                    <option></option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option value="@item.ClassId">@item.ClassName</option>
+
+                                    }
+
+                                </select>
+                            </div>
+
                         </div>
                         <div class="form-row">
                             <div class="col-md-12 mb-4">
@@ -115,11 +131,18 @@
                                     <input type="text" class="form-control" id="Username" placeholder="Username" aria-describedby="inputGroupPrepend" required>
                                 </div>
                             </div>
-                            <div class="col-md-12 mb-4">
-                                <label for="Password">Password</label>
-                                <input type="text" class="form-control" id="Password" placeholder="Password" name="Password" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label for="Password">Password </label>
+                                <input type="text" class="form-control" id="Password" name="Password" placeholder="Password" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="ConfirmPassword">Confirm Password</label>
+                                <input type="text" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" required>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -130,20 +153,18 @@
 @section Script{
 
     @Scripts.Render("~/bundles/Form")
+    <script src="~/Scripts/Js/CustomJs/Administration/Cus_Admin_Student.js"></script>
+    
+    <script type="text/javascript">
 
-    <script>
         $(document).ready(function () {
 
+            FormHelpher.InitSelect2($('#Class'), "Select Class", true);
             FormHelpher.InitSelect2($('#Gender'), "Select Gender", true);
             FormHelpher.InitDatePicker($('#DateOfBirth'), true, false);
             FormHelpher.InitDatePicker($('#AdmissionDate'), true, true);
 
-            $('#StudentForm').on('submit', function () {
-
-                FormHelpher.FormValidate($('#StudentForm'));
-
-            });
-
         });
+
     </script>
 }

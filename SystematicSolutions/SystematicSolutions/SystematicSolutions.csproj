@@ -527,6 +527,7 @@
     <Content Include="Scripts\Bootstrap\js\bootstrap.js" />
     <Content Include="Scripts\Bootstrap\js\bootstrap.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\Js\app-style-switcher.horizontal.js" />
     <Content Include="Scripts\Js\app-style-switcher.js" />
     <Content Include="Scripts\Js\app.init.boxed.js" />
@@ -542,6 +543,7 @@
     <Content Include="Scripts\Js\app.min.js" />
     <Content Include="Scripts\Js\custom.js" />
     <Content Include="Scripts\Js\custom.min.js" />
+    <Content Include="Scripts\Js\CustomJs\Administration\Cus_Admin_Student.js" />
     <Content Include="Scripts\Js\pages\c3-chart\axis\c3-category-axis.js" />
     <Content Include="Scripts\Js\pages\c3-chart\axis\c3-rotated-axis.js" />
     <Content Include="Scripts\Js\pages\c3-chart\axis\c3-tick-culling.js" />
@@ -610,6 +612,7 @@
     <Content Include="Scripts\Js\pages\widget\widget-charts.js" />
     <Content Include="Scripts\Js\pages\widget\widget-data.js" />
     <Content Include="Scripts\Js\sidebarmenu.js" />
+    <Content Include="Scripts\Js\toastr.min.js" />
     <Content Include="Scripts\Js\waves.js" />
     <Content Include="Scripts\Library\Lib_AjaxHelper.js" />
     <Content Include="Scripts\Library\Lib_Common.js" />
@@ -964,6 +967,14 @@
     <ProjectReference Include="..\SS_BAL\SS_BAL.csproj">
       <Project>{08f889b0-b0a1-44f9-b6a8-9ff4233132fe}</Project>
       <Name>SS_BAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS_Common\SS_Common.csproj">
+      <Project>{0de5b976-8b46-4c46-8be3-99bc93d47279}</Project>
+      <Name>SS_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS_DAL\SS_DAL.csproj">
+      <Project>{a292c168-b770-4d13-a43b-bb2c41405926}</Project>
+      <Name>SS_DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SS_Interface\SS_Interface.csproj">
       <Project>{7700e916-4de0-434a-9869-f3fb82f92cc4}</Project>

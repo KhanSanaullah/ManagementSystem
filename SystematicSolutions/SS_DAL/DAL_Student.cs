@@ -11,40 +11,66 @@ namespace SS_DAL
 {
     public abstract class DAL_Student
     {
-        public DataTable Save(IStudent Student, ISession Session)
+        public virtual DataTable Save(IStudent Student, ISession Session)
         {
-            DataTable Data = new DataTable();
-            using (SqlConnection Connection = new SqlConnection(DAL_Config.ConnectionString))
+            try
             {
-                if (Connection.State == ConnectionState.Closed)
-                    Connection.Open();
 
-                using (SqlTransaction transaction = Connection.BeginTransaction())
+                DataTable Data = new DataTable();
+                using (SqlConnection Connection = new SqlConnection(DAL_Config.ConnectionString))
                 {
-                    SqlParameter[] param = { new SqlParameter("@custid",Student.StudentId)
-                                                ,new SqlParameter("@firstName",Student.FirstName)
-                                                ,new SqlParameter("@lastName",Student.LastName)
+                    if (Connection.State == ConnectionState.Closed)
+                        Connection.Open();
+
+                    using (SqlTransaction transaction = Connection.BeginTransaction())
+                    {
+                        SqlParameter[] param = { new SqlParameter("@StudentId",Student.StudentId)
+                                             ,new SqlParameter("@FirstName",Student.FirstName)
+                                             ,new SqlParameter("@LastName",Student.LastName)
+                                             ,new SqlParameter("@Gender",Student.Gender)
+                                             ,new SqlParameter("@Address",Student.Address)
+                                             ,new SqlParameter("@Religion",Student.Religion)
+                                             ,new SqlParameter("@DateOfBirth",Student.DateOfBirth)
+                                             ,new SqlParameter("@Nationality",Student.Nationality)
+                                             ,new SqlParameter("@AdmissionDate",Student.AddmissionDate)
+                                             ,new SqlParameter("@Image",Student.Image)
+                                             ,new SqlParameter("@PhoneNo",Student.Phone)
+                                             ,new SqlParameter("@Status",Student.Status)
+                                             ,new SqlParameter("@CreatedBy",Session.UserId)
+                                             ,new SqlParameter("@CreatedDate",Student.CreatedDate)
+                                             ,new SqlParameter("@UpdatedBy",Session.UserId)
+                                             ,new SqlParameter("@UpdatedDate",Student.UpdatedDate)
+                                             ,new SqlParameter("@UserName",Student.UserName)
+                                             ,new SqlParameter("@Password",Student.Password)
+                                             ,new SqlParameter("@UserId",Student.StudentId)
+                                             ,new SqlParameter("@Role",Student.Role)
+                                             ,new SqlParameter("@CredentialsId",Student.CredentialsId)
                         };
 
-                    try
-                    {
-                        Data = SqlHelper.ExecuteDataset(transaction, "RB_uac_Student_Register", param).Tables[0];
-                        transaction.Commit();
+                        try
+                        {
+                            Data = SqlHelper.ExecuteDataset(transaction, "sp_ED_SaveStudent", param).Tables[0];
+                            transaction.Commit();
 
-                        Student.StudentId = Convert.ToInt32(Data.Rows[0]["custid"]);
+                            Student.StudentId = Convert.ToInt32(Data.Rows[0]["custid"]);
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
+
+                    if (Connection.State == ConnectionState.Open)
+                        Connection.Close();
                 }
-
-                if (Connection.State == ConnectionState.Open)
-                    Connection.Close();
+                return Data;
             }
-            return Data;
-        }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
     }
 }
